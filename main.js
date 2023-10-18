@@ -91,6 +91,8 @@ function fetchEncyclopediaData(query) {
 		});
 }
 
+// use this code instead if your running this project locally.
+
 // const numberInput = document.getElementById("numberInput");
 // const fetchButton = document.getElementById("fetchButton");
 // const numberFactDiv = document.getElementById("numberFact");
