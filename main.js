@@ -90,3 +90,83 @@ function fetchEncyclopediaData(query) {
 			encyclopediaDiv.innerText = "Error fetching encyclopedia data.";
 		});
 }
+
+// const numberInput = document.getElementById("numberInput");
+// const fetchButton = document.getElementById("fetchButton");
+// const numberFactDiv = document.getElementById("numberFact");
+// const encyclopediaDiv = document.getElementById("encyclopedia");
+
+// fetchButton.addEventListener("click", handleFetchButtonClick);
+
+// function handleFetchButtonClick() {
+
+// 	if (numberInput.value) {
+// 		const number = numberInput.value;
+// 		fetchNumberFact(number);
+// 	}
+// }
+
+// function fetchNumberFact(number) {
+
+// 	fetch(`http://numbersapi.com/${number}`)
+// 		.then((response) => response.text())
+// 		.then((fact) => {
+
+// 			numberFactDiv.innerText = fact;
+
+//             const terms = fact.split(" ").slice(2);
+
+// 			searchWikipediaWithFullFact(terms);
+// 		})
+// 		.catch((error) => {
+
+// 			numberFactDiv.innerText = "Error fetching number fact.";
+// 		});
+// }
+
+// function searchWikipediaWithFullFact(terms) {
+
+// 	if (terms.length < 5) {
+// 		encyclopediaDiv.innerText = "No relevant articles found.";
+// 		return;
+// 	}
+
+// 	const query = terms.join(" ");
+// 	fetchEncyclopediaData(query).then((found) => {
+// 		if (!found) {
+// 			terms.shift();
+// 			searchWikipediaWithFullFact(terms);
+// 		}
+// 	});
+// }
+
+// function fetchEncyclopediaData(query) {
+
+// 	const searchURL = `https://en.wikipedia.org/w/api.php?origin=*&action=query&list=search&srsearch=${encodeURIComponent(
+// 		query
+// 	)}&utf8=1&format=json`;
+
+// 	return fetch(searchURL)
+// 		.then((response) => response.json())
+// 		.then((data) => {
+
+// 			const articles = data.query.search;
+// 			if (articles.length > 0) {
+// 				const article = articles[0];
+// 				encyclopediaDiv.innerHTML = `<strong>${article.title}</strong>: ${
+// 					article.snippet
+// 				}...
+//                     <a href="https://en.wikipedia.org/wiki/${article.title.replace(
+// 											/ /g,
+// 											"_"
+// 										)}" target="_blank">Read more</a>`;
+// 				return true;
+// 			} else {
+// 				encyclopediaDiv.innerText = "No relevant articles found.";
+// 				return false;
+// 			}
+// 		})
+// 		.catch((error) => {
+// 			encyclopediaDiv.innerText = "Error fetching encyclopedia data.";
+// 		});
+// }
