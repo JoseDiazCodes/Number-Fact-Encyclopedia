@@ -16,8 +16,12 @@ function handleFetchButtonClick() {
 }
 
 function fetchNumberFact(number) {
-	// Make a call to the Numbers API to get a fact
-	fetch(`http://numbersapi.com/${number}`)
+	// Using a proxy to bypass Mixed Content errors when fetching data from non-HTTPS APIs in an HTTPS environment.
+	const proxyUrl = "https://api.allorigins.win/raw?url=";
+	const targetUrl = `http://numbersapi.com/${number}`;
+
+	// Make a call to the Numbers API through the proxy to get a fact
+	fetch(proxyUrl + targetUrl)
 		.then((response) => response.text())
 		.then((fact) => {
 			// Display the fact on the page
